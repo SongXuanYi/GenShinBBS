@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.83.1">
+    <title>Register</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/">
+
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+    <script src="../js/jquery.js"></script>
+    <script>
+        $(function () {
+            $("#btnRegister").click(function () {
+                if ($("#password").val() !== $("#confirmPassword").val()) {
+                    alert("密码不一致");
+                } else {
+                    $.ajax({
+                        url: "http://localhost:8080/Register.do",
+                        type: 'POST',
+                        xhrFields: {
+                            withCredentials: true
+                        },
+                        data: {username: $("#username").val(), password: $("#password").val()},
+                        success: function (data) {
+                            if (data.status === "Success") {
+                                window.location.href = "index.html"
+                            } else {
+                                alert("注册失败")
+                            }
+                        }
+                    })
+                }
+            })
+        })
+    </script>
+
+    <link href="../css/form-validation.css" rel="stylesheet">
+
+    <style type="text/css">
+        body {
+            background-image: url(../img/login_bg.jpg);
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body class="bg-light">
+<div class="container" align="center">
+    <main>
+        <div class="py-5 text-center">
+            <img class="d-block mx-auto mb-4" src="../img/clipboard-plus.svg" alt="" width="72" height="57">
+            <h2>注册</h2>
+        </div>
+
+        <div class="col-md-7 col-lg-8">
+            <form class="needs-validation" novalidate>
+                <div class="row g-3">
+
+
+                    <div class="col-12">
+                        <label for="username" class="form-label">用户名</label>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text">@</span>
+                            <input type="text" class="form-control" id="username" placeholder="Username" name="username"
+                                   required>
+                            <div class="invalid-feedback">
+                                用户名不能为空!
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="password" class="form-label">密码</label>
+                        <input type="password" class="form-control" id="password" placeholder="请在此输入" name="type" required>
+
+                        <div class="invalid-feedback">
+                            密码不能为空!
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="confirmPassword" class="form-label">请再次输入密码</label>
+                        <input type="password" class="form-control" id="confirmPassword" placeholder="请在此输入" name="event" required>
+                        <div class="invalid-feedback">
+                            密码不能为空!
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+
+                </div>
+
+
+                <button class="w-100 btn btn-primary btn-lg" type="button" id="btnRegister">注册</button>
+            </form>
+        </div>
+
+    </main>
+</div>
+<footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2021 SongXuanYi</p>
+
+</footer>
+</div>
+
+<script src="../js/bootstrap.bundle.min.js"></script>
+
+<script src="../js/form-validation.js"></script>
+
+</body>
+</html>
