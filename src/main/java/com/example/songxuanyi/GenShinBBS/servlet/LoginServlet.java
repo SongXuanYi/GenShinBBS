@@ -3,9 +3,9 @@ package com.example.songxuanyi.GenShinBBS.servlet;
 import com.example.songxuanyi.GenShinBBS.model.User;
 import com.example.songxuanyi.GenShinBBS.util.Database;
 import com.google.gson.JsonObject;
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
+import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
